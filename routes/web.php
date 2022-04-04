@@ -13,6 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ProfileController;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/tentang', function(){
+    return view('about');
+});
+
+Route::get('/education', function() {
+    return view('education');
+});
+
+Route::get('/portfolio', function() {
+    return view('portfolio');
+});
+
+Route::get('/contact', function() {
+    return view('contact');
+});
+
+Route::get('/profile', [ProfileController::class, 'index']);
+
+Route::get('/nama', function(){
+    return 'Putu Ananda Pradnya Wirawan';
+});
+
+Route::get('/dari-view', function (){
+    return view('home');
 });
