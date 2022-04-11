@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\SoalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,3 +46,12 @@ Route::get('/nama', function(){
 Route::get('/dari-view', function (){
     return view('home');
 });
+
+Route::view('master', 'template/master');
+
+Route::get('data-mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('add-mahasiswa', [MahasiswaController::class, 'create']);
+Route::post('getData',[MahasiswaController::class, 'ambilData'])->name('mahasiswa.getData');
+Route::get('data-soal',[SoalController::class,'index']);
+Route::get('add-soal',[SoalController::class,'create']);
+Route::post('getDataS', [SoalController::class, 'ambilData'])->name('soal.getDataS');
