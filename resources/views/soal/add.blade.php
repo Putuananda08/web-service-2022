@@ -12,28 +12,37 @@
                         <div class="card-header bg-primary" style="float: right;">
                             <h3 class="card-title">Tambah Data Soal</h3>
                         </div>
+                        @if ($errors->any())
+                        <div class="alert alert-warning">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <div class="card-body">
                             <form action="{{ route('soal.getDataS') }}" method="post">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="nama">id</label>
-                                    <input type="hidden" id="nama" name="id" class="form-control">
+                                    <input type="number" id="nama" name="id" value="{{ old('id') }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="nama">nama_mk</label>
-                                    <input type="text" id="nama" name="nama_mk" class="form-control">
+                                    <input type="text" id="nama" name="nama_mk" value="{{ old('nama_mk') }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="dosen">dosen</label>
-                                    <input type="text" id="dosen" name="dosen" class="form-control">
+                                    <input type="text" id="dosen" name="dosen" value="{{ old('dosen') }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="jml">jumlah_soal</label>
-                                    <input type="text" id="jml" name="jumlah_soal" class="form-control">
+                                    <input type="number" id="jml" name="jumlah_soal" value="{{ old('jumlah_soal') }}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="ket">keterangan</label>
-                                    <input type="text" id="ket" name="keterangan" class="form-control">
+                                    <input type="text" id="ket" name="keterangan" value="{{ old('keterangan') }}" class="form-control">
                                 </div>
                                
                                 <input type="submit" name="submit" value="Simpan Data">

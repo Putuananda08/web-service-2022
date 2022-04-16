@@ -32,7 +32,15 @@
                                     <td>{{ $row->nim }}</td>
                                     <td>{{ $row->nama_mahasiswa }}</td>
                                     <td>{{ $row->semester }}</td>
-                                    <td> <a href="#"> DELETE </a> <a href="#"> UPDATE </a></td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm" href="{{ url('edit-mahasiswa')}}/{{ $row->id }}/edit" role="button">Update</a>
+                                        <form action=" {{ route('delete.mahasiswa', $row->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('yakin ingin menghapus data?')">Hapus</button>
+
+                                        </form> 
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

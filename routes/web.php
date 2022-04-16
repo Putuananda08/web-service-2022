@@ -52,6 +52,13 @@ Route::view('master', 'template/master');
 Route::get('data-mahasiswa', [MahasiswaController::class, 'index']);
 Route::get('add-mahasiswa', [MahasiswaController::class, 'create']);
 Route::post('getData',[MahasiswaController::class, 'ambilData'])->name('mahasiswa.getData');
+Route::delete('delete-mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('delete.mahasiswa');
+Route::get('edit-mahasiswa/{id}/edit', [MahasiswaController::class, 'edit'])->name('edit.mahasiswa');
+Route::put('edit-mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('update.mahasiswa');
+
 Route::get('data-soal',[SoalController::class,'index']);
 Route::get('add-soal',[SoalController::class,'create']);
 Route::post('getDataS', [SoalController::class, 'ambilData'])->name('soal.getDataS');
+Route::delete('delete-soal/{id}', [SoalController::class, 'destroy'])->name('delete.soal');
+Route::get('edit-soal/{id}/edit', [SoalController::class, 'edit'])->name('edit.soal');
+Route::put('edit-soal/{id}', [SoalController::class, 'update'])->name('update.soal');
