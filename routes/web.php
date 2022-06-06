@@ -62,3 +62,7 @@ Route::post('getDataS', [SoalController::class, 'ambilData'])->name('soal.getDat
 Route::delete('delete-soal/{id}', [SoalController::class, 'destroy'])->name('delete.soal');
 Route::get('edit-soal/{id}/edit', [SoalController::class, 'edit'])->name('edit.soal');
 Route::put('edit-soal/{id}', [SoalController::class, 'update'])->name('update.soal');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
