@@ -64,6 +64,7 @@ class ProductController extends Controller
             return response()->json(['pesan' => 'Data Berhasil disimpan', 'data' => $productss], 200);
         }
     }
+    
     // Hapus data berdasar id
     public function destroy($id)
     {
@@ -73,5 +74,12 @@ class ProductController extends Controller
         }
         $productss->delete();
         return response()->json(['pesan' => 'Data Berhasil dihapus', 'data' => $productss]);
+       
     }
-}
+        public function indexRelasi()
+        {
+            $products = Product::with('category')->get();
+            return response()->json(['pesan' => 'Data Berhasil ditemukan', 'data' => $products], 200);
+        }
+
+    }
